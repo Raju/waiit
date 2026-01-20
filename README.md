@@ -32,6 +32,8 @@ wait(ms?: number): Promise<void>
 
 ## Usage
 
+### In Code
+
 ```js
 // CommonJS
 const wait = require('waiit');
@@ -43,45 +45,66 @@ import wait from 'waiit';
 import wait from 'https://unpkg.com/waiit/app.js';
 ```
 
+**Basic examples:**
 ```js
-await wait(2000);  // Wait 2 seconds
-await wait();      // Resolve immediately
+await wait(2000);  // Pause for 2 seconds
+await wait(500);   // Pause for 500ms
+await wait();      // Continue immediately (0ms)
 ```
 
-### Retry with delay
+**Retry with delay:**
 ```js
 async function fetchWithRetry(url, retries = 3) {
   for (let i = 0; i < retries; i++) {
     try {
       return await fetch(url);
     } catch (e) {
-      if (i < retries - 1) await wait(1000);
+      if (i < retries - 1) {
+        console.log(`Retry ${i + 1}...`);
+        await wait(1000);  // Wait 1s between retries
+      }
     }
   }
-  throw new Error('Failed');
+  throw new Error('Max retries reached');
 }
 ```
 
-### Sequential execution
+**Sequential execution:**
 ```js
-for (const step of steps) {
-  console.log(step.message);
-  await wait(step.delay);
-}
+console.log('Starting...');
+await wait(1000);
+console.log('After 1 second');
+await wait(2000);
+console.log('After 3 seconds total');
 ```
 
-## CLI
+### In Terminal (CLI)
 
 ```bash
-# Via npx
-npx waiit 2000   # Wait 2 seconds
+# Via npx (no install needed)
+npx waiit 2000   # Wait 2 seconds, then exit
+echo "Done!"
 
 # Or install globally
 npm i -g waiit
-waiit 3000       # Wait 3 seconds
-waiit            # Exit immediately
+waiit 3000 && echo "3 seconds passed"
+
+# Use in shell scripts
+echo "Starting..."
+waiit 1000
+echo "Finished"
+```
+
+**Shell script example:**
+```bash
+#!/bin/bash
+echo "Build starting..."
+npm run build
+waiit 2000  # Give time for build artifacts to settle
+echo "Deploying..."
+npm run deploy
 ```
 
 ## License
 
-[MIT](LICENSE) © Raju Dhami
+[MIT](LICENSE) © [Raju Dhami](https://github.com/Raju)
