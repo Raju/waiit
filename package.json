@@ -1,9 +1,19 @@
 {
   "name": "waiit",
-  "version": "1.0.0",
-  "description": "Wait for any amount of time in milliseconds or resolve immediately if no value passed",
-  "repository": "Raju/waiit",
+  "version": "1.0.1",
+  "description": "Promise-based delay utility. Tiny, typed, zero dependencies.",
   "main": "app.js",
-  "author": "Raju, Varsha",
-  "license": "MIT"
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./app.js",
+      "import": "./app.js"
+    }
+  },
+  "repository": "Raju/waiit",
+  "keywords": ["wait","delay","sleep","timeout","promise","async","await","setTimeout","timer","pause","browser","node"],
+  "author": "Raju Dhami",
+  "license": "MIT",
+  "files": ["app.js", "index.d.ts"]
 }
