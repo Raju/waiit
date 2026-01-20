@@ -1,9 +1,10 @@
 {
   "name": "waiit",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Promise-based delay utility. Tiny, typed, zero dependencies.",
   "main": "app.js",
   "types": "index.d.ts",
+  "bin": "cli.js",
   "exports": {
     ".": {
       "types": "./index.d.ts",
@@ -12,8 +13,8 @@
     }
   },
   "repository": "Raju/waiit",
-  "keywords": ["wait","delay","sleep","timeout","promise","async","await","setTimeout","timer","pause","browser","node"],
+  "keywords": ["wait","delay","sleep","timeout","promise","async","await","setTimeout","timer","pause","browser","node","cli"],
   "author": "Raju Dhami",
   "license": "MIT",
-  "files": ["app.js", "index.d.ts"]
+  "files": ["app.js", "index.d.ts", "cli.js"]
 }

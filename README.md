@@ -8,7 +8,7 @@ Promise-based delay utility. Tiny, typed, zero dependencies.
 
 ## Features
 
-🪶 Lightweight (1 line) · ⚡ Simple async/await API · 📦 TypeScript ready · 🔧 Flexible · 🌐 Universal (Node.js & Browser)
+🪶 Lightweight (1 line) · ⚡ Simple async/await API · 📦 TypeScript ready · 🔧 Flexible · 🌐 Universal (Node.js & Browser) · 💻 CLI support
 
 
 ## Install
@@ -66,8 +66,20 @@ async function fetchWithRetry(url, retries = 3) {
 ```js
 for (const step of steps) {
   console.log(step.message);
-  wait(step.delay);
+  await wait(step.delay);
 }
+```
+
+## CLI
+
+```bash
+# Via npx
+npx waiit 2000   # Wait 2 seconds
+
+# Or install globally
+npm i -g waiit
+waiit 3000       # Wait 3 seconds
+waiit            # Exit immediately
 ```
 
 ## License
