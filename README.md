@@ -77,7 +77,7 @@ await wait(2000);
 
 **Classic Script (JSFiddle, CodePen, etc.):**
 ```html
-<script src="https://unpkg.com/waiit/app.umd.js"></script>
+<script src="https://unpkg.com/waiit/app.global.js"></script>
 <script>
   wait(1000).then(() => console.log('Done!'));
 </script>
