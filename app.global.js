@@ -1,0 +1,1 @@
+((g,f)=>{typeof exports==="object"&&typeof module!=="undefined"?module.exports=f():typeof define==="function"&&define.amd?define(f):(g=g||self,g.wait=f())})(this,()=>t=>new Promise(r=>setTimeout(r,t)))

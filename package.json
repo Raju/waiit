@@ -2,19 +2,50 @@
   "name": "waiit",
   "version": "2.0.1",
   "description": "Promise-based delay utility. Tiny, typed, zero dependencies.",
-  "main": "app.js",
-  "types": "index.d.ts",
-  "bin": "cli.js",
+  "main": "app.cjs",
+  "module": "app.js",
+  "browser": "app.global.js",
+  "type": "module",
+  "types": "app.d.ts",
+  "bin": "app.cli.js",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "require": "./app.js",
-      "import": "./app.js"
+      "types": "./app.d.ts",
+      "import": "./app.js",
+      "require": "./app.cjs"
     }
   },
+  "sideEffects": false,
   "repository": "Raju/waiit",
-  "keywords": ["wait","delay","sleep","timeout","promise","async","await","setTimeout","timer","pause","browser","node","cli"],
-  "author": "Raju Dhami",
+  "keywords": [
+    "wait",
+    "delay",
+    "sleep",
+    "timeout",
+    "promise",
+    "async",
+    "await",
+    "setTimeout",
+    "timer",
+    "pause",
+    "browser",
+    "node",
+    "cli"
+  ],
+  "author": "Raju Dhami <raju@rajudhami.com>",
+  "contributors": [
+    "Raju Dhami <raju@rajudhami.com>"
+  ],
   "license": "MIT",
-  "files": ["app.js", "index.d.ts", "cli.js"]
+  "files": [
+    "app.js",
+    "app.cjs",
+    "app.global.js",
+    "app.d.ts",
+    "app.cli.js"
+  ],
+  "packageManager": "bun@1.3.6",
+  "engines": {
+    "node": ">=14"
+  }
 }

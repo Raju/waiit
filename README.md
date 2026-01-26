@@ -8,13 +8,26 @@ Promise-based delay utility. Tiny, typed, zero dependencies.
 
 ## Features
 
-🪶 Lightweight (1 line) · ⚡ Simple async/await API · 📦 TypeScript ready · 🔧 Flexible · 🌐 Universal (Node.js & Browser) · 💻 CLI support
+🪶 Lightweight · ⚡ Simple async/await API · 📦 TypeScript ready · 🌐 Universal (Node.js & Browser) · 💻 CLI support
 
 
 ## Install
 
 ```bash
+# npm
 npm install waiit
+
+# yarn
+yarn add waiit
+
+# pnpm
+pnpm add waiit
+
+# bun
+bun add waiit
+
+# deno
+deno add npm:waiit
 ```
 
 ## API
@@ -23,37 +36,60 @@ npm install waiit
 wait(ms?: number): Promise<void>
 ```
 
-| Parameter | Type     | Default | Description                          |
-|-----------|----------|---------|--------------------------------------|
-| `ms`      | `number` | `0`     | Delay in milliseconds                |
+| Parameter | Type     | Default | Description           |
+|-----------|----------|---------|----------------------|
+| `ms`      | `number` | `0`     | Delay in milliseconds |
 
 **Returns:** A `Promise` that resolves after the specified time.
 
 
 ## Usage
 
-### In Code
+### ES Modules
 
 ```js
-// CommonJS
-const wait = require('waiit');
-
-// ES Modules
 import wait from 'waiit';
 
-// Browser (CDN)
-import wait from 'https://unpkg.com/waiit/app.js';
-```
-
-**Basic examples:**
-```js
 await wait(2000);  // Pause for 2 seconds
 await wait(500);   // Pause for 500ms
 await wait();      // Continue immediately (0ms)
 ```
 
+### CommonJS
+
+```js
+const wait = require('waiit');
+
+await wait(2000);
+```
+
+### Browser (CDN)
+
+**ES Modules:**
+```html
+<script type="module">
+  import wait from 'https://unpkg.com/waiit/app.js';
+
+  await wait(1000);
+  console.log('Done!');
+</script>
+```
+
+**Classic Script (JSFiddle, CodePen, etc.):**
+```html
+<script src="https://unpkg.com/waiit/app.umd.js"></script>
+<script>
+  wait(1000).then(() => console.log('Done!'));
+</script>
+```
+
+
+## Examples
+
 **Retry with delay:**
 ```js
+import wait from 'waiit';
+
 async function fetchWithRetry(url, retries = 3) {
   for (let i = 0; i < retries; i++) {
     try {
@@ -61,7 +97,7 @@ async function fetchWithRetry(url, retries = 3) {
     } catch (e) {
       if (i < retries - 1) {
         console.log(`Retry ${i + 1}...`);
-        await wait(1000);  // Wait 1s between retries
+        await wait(1000);
       }
     }
   }
@@ -78,32 +114,18 @@ await wait(2000);
 console.log('After 3 seconds total');
 ```
 
-### In Terminal (CLI)
+
+## CLI
 
 ```bash
 # Via npx (no install needed)
-npx waiit 2000   # Wait 2 seconds, then exit
-echo "Done!"
+npx waiit 2000 && echo "Done!"
 
 # Or install globally
 npm i -g waiit
 waiit 3000 && echo "3 seconds passed"
-
-# Use in shell scripts
-echo "Starting..."
-waiit 1000
-echo "Finished"
 ```
 
-**Shell script example:**
-```bash
-#!/bin/bash
-echo "Build starting..."
-npm run build
-waiit 2000  # Give time for build artifacts to settle
-echo "Deploying..."
-npm run deploy
-```
 
 ## License
 
