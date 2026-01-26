@@ -45,7 +45,7 @@ wait(ms?: number): Promise<void>
 
 ## Usage
 
-### ES Modules
+### ES Modules (`app.js`)
 
 ```js
 import wait from 'waiit';
@@ -55,7 +55,7 @@ await wait(500);   // Pause for 500ms
 await wait();      // Continue immediately (0ms)
 ```
 
-### CommonJS
+### CommonJS (`app.cjs`)
 
 ```js
 const wait = require('waiit');
@@ -65,7 +65,7 @@ await wait(2000);
 
 ### Browser (CDN)
 
-**ES Modules:**
+**ES Modules (`app.js`):**
 ```html
 <script type="module">
   import wait from 'https://unpkg.com/waiit/app.js';
@@ -75,7 +75,7 @@ await wait(2000);
 </script>
 ```
 
-**Classic Script (JSFiddle, CodePen, etc.):**
+**Classic Script (`app.global.js`):**
 ```html
 <script src="https://unpkg.com/waiit/app.global.js"></script>
 <script>
@@ -125,6 +125,17 @@ npx waiit 2000 && echo "Done!"
 npm i -g waiit
 waiit 3000 && echo "3 seconds passed"
 ```
+
+
+## Files
+
+| File | Purpose |
+|------|---------|
+| `app.js` | ESM module (`import wait from 'waiit'`) |
+| `app.cjs` | CommonJS module (`require('waiit')`) |
+| `app.global.js` | UMD for browsers (`<script>` tag → `window.wait`) |
+| `app.d.ts` | TypeScript type definitions |
+| `app.cli.js` | CLI binary (`npx waiit 1000`) |
 
 
 ## License
