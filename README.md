@@ -134,7 +134,9 @@ waiit 3000 && echo "3 seconds passed"
 | `app.js` | ESM module (`import wait from 'waiit'`) |
 | `app.cjs` | CommonJS module (`require('waiit')`) |
 | `app.global.js` | UMD for browsers (`<script>` tag → `window.wait`) |
-| `app.d.ts` | TypeScript type definitions |
+| `app.d.ts` | TypeScript type definitions (ESM) |
+| `app.cjs.d.ts` | TypeScript type definitions (CommonJS) |
+| `app.global.d.ts` | TypeScript type definitions (Global/UMD) |
 | `app.cli.js` | CLI binary (`npx waiit 1000`) |
 
 

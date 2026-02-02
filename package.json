@@ -1,6 +1,6 @@
 {
   "name": "waiit",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Promise-based delay utility. Tiny, typed, zero dependencies.",
   "main": "app.cjs",
   "module": "app.js",
