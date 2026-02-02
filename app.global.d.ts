@@ -5,4 +5,7 @@
  * @example wait(2000); // Wait for 2 seconds
  */
 declare function wait(ms?: number): Promise<void>;
-export { wait as default };
+declare global {
+	const wait: typeof wait;
+}
+export = wait;
